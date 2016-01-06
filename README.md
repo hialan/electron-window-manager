@@ -47,6 +47,8 @@ app.on('ready', function() {
 var WindowManagerClient = require('./path/to/window_manager_client.js');
 
 var MainWindow = React.createClass({
+  // windowManagerClient.init() should be called in `componentDidMount` life cycle
+  // which is all DOM are rendered 
   componentDidMount: function() {
     this.windowManagerClient = new WindowManagerClient('mainWindow', function(event, arg){
       this.setState({message: arg});
