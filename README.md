@@ -12,6 +12,8 @@ npm start
 ### Server side (main process)
 
 ```js
+var WindowManagerServer = require('./path/to/window_manager_server.js');
+
 var windowManagerServer = new WindowManagerServer({
   mainWindow: {
     create: function() {
@@ -42,6 +44,8 @@ app.on('ready', function() {
 **With React**
 
 ```js
+var WindowManagerClient = require('./path/to/window_manager_client.js');
+
 var MainWindow = React.createClass({
   componentDidMount: function() {
     this.windowManagerClient = new WindowManagerClient('mainWindow', function(event, arg){
