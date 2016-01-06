@@ -12,11 +12,20 @@ crashReporter.start();
 var windowManagerServer = new WindowManagerServer({
   mainWindow: {
     create: function() {
-      var mainWindow = new BrowserWindow({width: 1024, height: 768});
-      mainWindow.openDevTools();
+      var win = new BrowserWindow({width: 1024, height: 768});
+      win.openDevTools();
       // and load the index.html of the app.
-      mainWindow.loadURL('file://' + __dirname + '/app/mainWindow.html');
-      return mainWindow;
+      win.loadURL('file://' + __dirname + '/app/mainWindow.html');
+      return win;
+    }
+  },
+  secondWindow: {
+    create: function() {
+      var win = new BrowserWindow({width: 1024, height: 768});
+      win.openDevTools();
+      // and load the index.html of the app.
+      win.loadURL('file://' + __dirname + '/app/secondWindow.html');
+      return win;
     }
   }
 });

@@ -3,7 +3,8 @@ var webpackTargetElectronRenderer = require('webpack-target-electron-renderer');
 
 var config = {
   entry: {
-    mainWindow: ['./example/app/mainWindow.jsx']
+    mainWindow: ['./example/app/mainWindow.jsx'],
+    secondWindow: ['./example/app/secondWindow.jsx']
   },
 output: {
   path: './example/app/built',

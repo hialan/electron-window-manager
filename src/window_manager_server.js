@@ -24,6 +24,13 @@ function sendMessage(window_name) {
   }
 }
 
+function push_message_queue(window_name, payload) {
+  if(!msg_queue.hasOwnProperty(window_name) || typeof msg_queue[window_name] !== 'array') {
+    msg_queue[window_name] = [];
+  }
+  msg_queue[window_name].push(payload);
+}
+
 WindowManagerServer.prototype.open = function(window_name) {
   if(instances.hasOwnProperty(window_name) && instances[window_name] != null) {
     return;
@@ -56,10 +63,7 @@ WindowManagerServer.prototype.handleChannelWindowManager = function(event, comma
     var window_name = command.data.name;
     var window_args = command.data.args;
     if(window_args !== undefined && window_args !== null) {
-      if(!msg_queue.hasOwnProperty(window_name) || typeof msg_queue[window_name] !== 'array') {
-        msg_queue[window_name] = [];
-      }
-      msg_queue[window_name].push(window_args);
+      push_message_queue(window_name, window_args);
     }
     if(this.isOpened(window_name)) {
       sendMessage(window_name);
@@ -72,7 +76,8 @@ WindowManagerServer.prototype.handleChannelWindowManager = function(event, comma
   } else if (command.action === 'send') {
     var window_name = command.data.target;
     var payload = command.data.payload;
-    msg_queue[window_name].push(payload);
+    //msg_queue[window_name].push(payload);
+    push_message_queue(window_name, payload);
     sendMessage(window_name);
   } else if (command.action === 'close') {
     var target_window = command.data.target;
