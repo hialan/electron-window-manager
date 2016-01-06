@@ -128,6 +128,10 @@ notify server to close window.
 
 send data/message to the window with `window_name` through server. 
 
+## Contribution 
+
+PR & feedback are welcome.
+
 ## License
 
 MIT
