@@ -28,6 +28,11 @@ var windowManagerServer = new WindowManagerServer({
       
       return win;
     }
+  },
+  window2: {
+    create: function() {
+      ...
+    }
   }
 });
 windowManagerServer.registerIPC(); // register ipc to dispatch events
