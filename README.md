@@ -29,9 +29,11 @@ close the window
 #### server.isOpened(window_name)
 * `window_name` (String): the window name in the definition object
 
-check the window weather is opened.
+check the window whether is opened.
 
 #### server.registerIPC()
+
+let server listen to the channel 'WindowManager' and register the message handler. 
 
 ### Class: WindowManagerClient
 
