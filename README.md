@@ -10,7 +10,7 @@ npm start
 
 ## API Document
 
-### WindowManagerServer
+### Class: WindowManagerServer
 
 #### new WindowManagerServer(object windowDefinition)
 
@@ -29,7 +29,7 @@ close the window_name
 
 #### server.registerIPC()
 
-### WindowManagerClient
+### Class: WindowManagerClient
 
 #### new WindowManagerClient(window_name, dispatcher)
 * `window_name` (String): the window name in the definition object
@@ -38,10 +38,13 @@ close the window_name
 #### client.init()
 
 #### client.open(window_name, args)
+* `window_name` (String): the window name in the definition object
 
 #### client.close([window_name])
+* `window_name` (String, optional): if not provide, it will close current window
 
 #### client.send(window_name, payload)
+* `window_name` (String): the window name in the definition object
 
 ## License
 
