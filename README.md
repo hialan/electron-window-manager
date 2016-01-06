@@ -7,6 +7,61 @@ A window manager and message dispatcher for Electron
 npm install
 npm start
 ```
+## Usage
+
+### Server side (main process)
+
+```js
+var windowManagerServer = new WindowManagerServer({
+  mainWindow: {
+    create: function() {
+      var win = new BrowserWindow({width: 1024, height: 768});
+      win.openDevTools();
+      win.loadURL('file://' + __dirname + '/app/mainWindow.html');
+      
+      // do not need to listen ipc.on('closed') event, 
+      // WindowManager will help you to do that
+      //
+      // ipc.on('closed', function() {...}); // no need this
+      
+      return win;
+    }
+  }
+});
+windowManagerServer.registerIPC(); // register ipc to dispatch events
+
+// This method will be called when Electron has done everything
+// initialization and ready for creating browser windows.
+app.on('ready', function() {
+  windowManagerServer.open('mainWindow');
+});
+```
+
+### Client side (Renderer)
+
+**With React**
+
+```js
+var MainWindow = React.createClass({
+  componentDidMount: function() {
+    this.windowManagerClient = new WindowManagerClient('mainWindow', function(event, arg){
+      this.setState({message: arg});
+    }.bind(this));
+
+    this.windowManagerClient.init();
+  },
+  render: function() {
+    return (
+     ...
+    );
+  }
+});
+
+ReactDOM.render(
+  <MainWindow/>,
+  document.getElementById('content')
+);
+```
 
 ## API Document
 
