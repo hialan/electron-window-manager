@@ -15,6 +15,7 @@ npm start
 var WindowManagerServer = require('./path/to/window_manager_server.js');
 
 var windowManagerServer = new WindowManagerServer({
+  // a window named `mainWindow`
   mainWindow: {
     create: function() {
       var win = new BrowserWindow({width: 1024, height: 768});
@@ -29,6 +30,7 @@ var windowManagerServer = new WindowManagerServer({
       return win;
     }
   },
+  // a window named `window2`
   window2: {
     create: function() {
       ...
