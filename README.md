@@ -1,5 +1,5 @@
 # electron-window-manager
-A window manager and message dispatcher for Electron
+A window manager and message dispatcher for [Electron](http://electron.atom.io/).
 
 ## Demo & Example
 
