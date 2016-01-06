@@ -1,6 +1,7 @@
 'use strict';
 var BrowserWindow = require('browser-window');  // Module to create native browser window.
-var ipc = require('electron').ipcMain;
+//var ipc = require('electron').ipcMain;
+var ipc = require('ipc');
 
 var instances = [];
 var msg_queue = [];

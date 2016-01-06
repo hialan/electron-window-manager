@@ -1,0 +1,8 @@
+{
+  "name": "electron-window-manager-example",
+  "version": "1.0.0",
+  "description": "electron window manager example",
+  "main": "main.js",
+  "author": "Hialan Liu <hialan.liu@gmail.com>",
+  "license": "MIT"
+}

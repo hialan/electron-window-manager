@@ -1,5 +1,6 @@
 'use strict';
-var ipc = require('electron').ipcRenderer;
+//var ipc = require('electron').ipcRenderer;
+var ipc = require('ipc-renderer');
 
 function WindowManagerClient(window_name, dispatcher) {
   this.window_name = window_name;
